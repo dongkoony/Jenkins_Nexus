@@ -1,0 +1,29 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="javaposse.jobdsl.plugin.ExecuteDslScripts" plugin="job-dsl@1.77">
+    <scriptText>
+      job('Nexus-Job') {
+        scm {
+          nexusRepository {
+            repositoryUrl '${nexus_repo}'
+            ...
+          }
+        }
+        ...
+      }
+    </scriptText>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders/>
+  <publishers/>
+  <buildWrappers/>
+</project>

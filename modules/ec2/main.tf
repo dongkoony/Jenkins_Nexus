@@ -1,11 +1,13 @@
-resource "aws_instance" "ec2_instance" {
+# ./modules/ec2/main.tf
+
+resource "aws_instance" "this" {
   ami           = var.ami
   instance_type = var.instance_type
 
   subnet_id                   = var.subnet_id
   associate_public_ip_address = var.associate_public_ip_address
   vpc_security_group_ids      = [aws_security_group.instance_sg.id]
-  key_name                    = aws_key_pair.instance_key.key_name
+  key_name                    = var.key_name
 
   user_data = var.user_data
 
@@ -40,7 +42,7 @@ resource "aws_security_group" "instance_sg" {
   tags = var.tags
 }
 
-resource "aws_key_pair" "instance_key" {
-  key_name   = var.key_name
-  public_key = file(var.public_key_path)
-}
+# resource "aws_key_pair" "instance_key" {
+#   key_name   = var.key_name
+#   public_key = file(var.public_key_path)
+# }

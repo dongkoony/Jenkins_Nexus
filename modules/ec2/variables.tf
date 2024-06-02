@@ -1,3 +1,5 @@
+# # ./modules/ec2/variables.tf
+
 variable "name_prefix" {
   description = "리소스 이름 접두사"
   type        = string
@@ -50,9 +52,9 @@ variable "public_key_path" {
 }
 
 variable "root_volume_size" {
-  description = "루트 볼륨 크기 (GB) 디폴트 8GB"
+  description = "루트 볼륨 크기 (GB) 디폴트 30GB"
   type        = number
-  default     = 8
+  default     = 30
 }
 
 variable "user_data" {

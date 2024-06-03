@@ -68,3 +68,8 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "availability_zone" {
+  description = "AZ"
+  type        = string
+}

@@ -23,3 +23,11 @@ docker run -d \
   --name jenkins \
   -v jenkins-data:/var/jenkins_home \
   jenkins/jenkins:lts
+
+# Wait for Jenkins to start
+while [ ! -f /var/jenkins_home/secrets/initialAdminPassword ]; do
+  sleep 10
+done
+
+# Disable Jenkins Crumb
+curl -X POST "http://admin:$(cat /var/jenkins_home/secrets/initialAdminPassword)@localhost:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)"

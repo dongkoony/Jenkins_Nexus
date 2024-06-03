@@ -16,4 +16,8 @@ for i in {1..10}; do
   sleep 30
 done
 
-curl -X POST "http://admin:$INITIAL_PASSWORD@$1:8080/createItem?name=hello-world" --data-binary "$2" -H "Content-Type: application/xml"
+# Get Crumb
+CRUMB=$(curl -s "http://admin:$INITIAL_PASSWORD@$1:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)")
+
+# Create Jenkins job
+curl -X POST "http://admin:$INITIAL_PASSWORD@$1:8080/createItem?name=hello-world" --data-binary "$2" -H "Content-Type: application/xml" -H "$CRUMB"

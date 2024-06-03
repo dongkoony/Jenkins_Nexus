@@ -22,8 +22,8 @@ module "nexus" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   ]
-  key_name        = "Main"
-  public_key_path = "C:/Users/djshin/.ssh/Main.pem"
+  key_name        = "donghyeon"
+  public_key_path = "/home/ubuntu/Project/donghyeon.pem"
   user_data       = data.template_file.nexus_user_data.rendered
   tags            = { Environment = "prod" }
 }

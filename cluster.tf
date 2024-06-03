@@ -29,8 +29,8 @@ module "cluster" {
     }
   ]
 
-  key_name        = "Main" # 키페어 이름
-  public_key_path = "C:/Users/djshin/.ssh/Main.pem" # 퍼블릭 키 파일 경로
+  key_name        = "donghyeon" # 키페어 이름
+  public_key_path = "/home/ubuntu/Project/donghyeon.pem" # 퍼블릭 키 파일 경로
   user_data       = file("script/cluster-user-data.sh") # 사용자 데이터 스크립트
   tags            = { Environment = "prod" } # 태그
 }
